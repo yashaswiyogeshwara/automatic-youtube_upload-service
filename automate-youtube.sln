@@ -3,7 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerService", "WorkerService\WorkerService.csproj", "{B2BC4247-008D-494D-BA8E-977A47352A62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoEditor", "VideoEditor\VideoEditor.csproj", "{40851C2C-CB7E-48AF-B33E-EAAF3F055AD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoEditorTest", "Testing\VideoEditorTest\VideoEditorTest.csproj", "{E77FD276-4439-430A-8E6B-090CAA318273}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2BC4247-008D-494D-BA8E-977A47352A62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2BC4247-008D-494D-BA8E-977A47352A62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2BC4247-008D-494D-BA8E-977A47352A62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2BC4247-008D-494D-BA8E-977A47352A62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40851C2C-CB7E-48AF-B33E-EAAF3F055AD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40851C2C-CB7E-48AF-B33E-EAAF3F055AD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40851C2C-CB7E-48AF-B33E-EAAF3F055AD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40851C2C-CB7E-48AF-B33E-EAAF3F055AD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E77FD276-4439-430A-8E6B-090CAA318273}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E77FD276-4439-430A-8E6B-090CAA318273}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E77FD276-4439-430A-8E6B-090CAA318273}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E77FD276-4439-430A-8E6B-090CAA318273}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
