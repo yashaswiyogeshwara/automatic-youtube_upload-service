@@ -1,4 +1,6 @@
+using PixabayClient;
 using System;
+using System.Threading.Tasks;
 using VideoEditor;
 using Xunit;
 
@@ -7,6 +9,7 @@ namespace VideoEditorTest
     public class UnitTest1
     {
         public VideoCreator creator;
+        public Client client;
         public UnitTest1()
         {
             Arrange();
@@ -15,17 +18,21 @@ namespace VideoEditorTest
 
         private void Arrange()
         {
-            creator = new VideoCreator();
+            //creator = new VideoCreator();
+             client = new Client();
+               
         }
 
         private void Act()
         {
-            creator.CreateVideo();
+            
         }
 
         [Fact]
-        public void Test1()
+        public async Task Test1()
         {
+            //await creator.CreateVideo();
+            await client.GetImages();
             Assert.True(1 == 1);
         }
     }

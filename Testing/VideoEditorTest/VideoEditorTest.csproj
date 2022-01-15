@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\ThirdParty\PixabayClient\PixabayClient.csproj" />
     <ProjectReference Include="..\..\VideoEditor\VideoEditor.csproj" />
   </ItemGroup>
 
