@@ -1,31 +1,32 @@
-﻿using FFMpegCore;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+using Xabe.FFmpeg;
 
 namespace VideoEditor
 {
     public class VideoCreator
     {
-        public void CreateVideo() {
-            
-            ImageInfo[] images = GetImages();
-            ImageInfo image2 = ImageInfo.FromPath(@"C:\Users\yogeshwaray\Pictures\Screenshots\Screenshot1.png");
-            ImageInfo image1 = ImageInfo.FromPath(@"C:\Users\yogeshwaray\Pictures\Screenshots\Screenshot2.png");
-            ImageInfo image = ImageInfo.FromPath(@"C:\Users\yogeshwaray\Pictures\Screenshots\Screenshot3.png");
-            FFMpeg.JoinImageSequence("SampleOutput1.mp4", 1, image,
-                image1,image,image1,image2);
-            FFMpeg.ReplaceAudio("SampleOutput1.mp4", @"E:\YashaswiYogeshwara\Youtube\The Thought of You - TrackTribe.mp3", "SampleOutputWithAudioNew.mp4");
-            
+        public async Task  CreateVideo() {
+            IEnumerable<string> files = Directory.EnumerateFiles(@"E:\Projects\automatic-youtube_upload-service\Files\Images\13-01-2022\");
+
+            await FFmpeg.Conversions.New()
+                .SetInputFrameRate(0.2)
+                .BuildVideoFromImages(files)
+                .SetFrameRate(1)
+                .SetPixelFormat(PixelFormat.yuvj411p)
+                .SetOutput(@"E:\Projects\automatic-youtube_upload-service\Files\outputfile.mp4")
+                .Start();
+            IConversion conversion = await FFmpeg.Conversions.FromSnippet
+                  .AddAudio(@"E:\Projects\automatic-youtube_upload-service\Files\outputfile.mp4",
+                  @"E:\Projects\automatic-youtube_upload-service\Files\Audio\hidden-place-extended-version-13891.mp3",
+                  @"E:\Projects\automatic-youtube_upload-service\Files\Output\14-01-2021\HiddenPlaceVideo.mp4");
+            await conversion.Start();
         }
-        public ImageInfo[] GetImages() {
-           ImageInfo image2 =  ImageInfo.FromPath(@"C:\Users\yogeshwaray\Pictures\Screenshots\Screenshot1.png");
-            ImageInfo image1 = ImageInfo.FromPath(@"C:\Users\yogeshwaray\Pictures\Screenshots\Screenshot2.png");
-            ImageInfo image =  ImageInfo.FromPath(@"C:\Users\yogeshwaray\Pictures\Screenshots\Screenshot3.png");
-            ImageInfo[] info = new ImageInfo[3];
-            info[0] = image2;
-            info[1] = image1;
-            info[2] = image;
-            return info;
-        }
+
+
+       
 
     }
 }
